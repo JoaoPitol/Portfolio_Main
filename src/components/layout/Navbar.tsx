@@ -82,7 +82,7 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          'fixed top-0 w-full z-50 transition-all duration-500',
+          'fixed top-0 w-full z-[100] transition-all duration-500',
           scrolled
             ? 'glass shadow-lg shadow-black/5'
             : 'bg-transparent',
@@ -165,7 +165,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed right-0 top-0 z-50 h-full w-72 glass-strong md:hidden"
+              className="fixed right-0 top-0 z-[100] h-full w-72 glass-strong md:hidden"
             >
               <div className="flex h-16 items-center justify-end px-4">
                 <button

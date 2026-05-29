@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, BookOpen } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import { projects, projectCategories } from '@/lib/data';
 import { useLanguage } from '@/providers/LanguageProvider';
+import PdfModal from '@/components/ui/PdfModal';
 
 const gradientVariants = [
   'from-[#FF6B35] to-[#FF8C42]',
@@ -20,6 +21,7 @@ const gradientVariants = [
 export default function ProjectsSection() {
   const { language } = useLanguage();
   const [activeFilter, setActiveFilter] = useState('Todos');
+  const [activePdf, setActivePdf] = useState<{ url: string; title: string } | null>(null);
 
   const isAll = activeFilter === 'Todos' || activeFilter === 'All';
   const filteredProjects = isAll
@@ -125,7 +127,7 @@ export default function ProjectsSection() {
                   </div>
 
                   {/* Footer Links */}
-                  <div className="flex items-center justify-between border-t border-white/10 pt-4">
+                  <div className="flex items-center justify-between border-t border-border pt-4">
                     {project.github && (
                       <a
                         href={project.github}
@@ -136,6 +138,15 @@ export default function ProjectsSection() {
                         <SiGithub className="h-4 w-4" />
                         {language === 'pt' ? 'Código' : 'Code'}
                       </a>
+                    )}
+                    {project.pdf && (
+                      <button
+                        onClick={() => setActivePdf({ url: project.pdf!, title: project.title[language] })}
+                        className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-[#FF8C42]"
+                      >
+                        <BookOpen className="h-4 w-4" />
+                        {language === 'pt' ? 'Ler Artigo' : 'Read Paper'}
+                      </button>
                     )}
                     {project.demo && (
                       <a
@@ -155,6 +166,13 @@ export default function ProjectsSection() {
           </AnimatePresence>
         </motion.div>
       </div>
+
+      <PdfModal
+        isOpen={activePdf !== null}
+        onClose={() => setActivePdf(null)}
+        pdfUrl={activePdf?.url || ''}
+        title={activePdf?.title || ''}
+      />
     </section>
   );
 }

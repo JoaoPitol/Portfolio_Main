@@ -276,7 +276,7 @@ export default function ContactSection() {
                     setFormData((prev) => ({ ...prev, name: e.target.value }))
                   }
                   placeholder={language === 'pt' ? 'Seu nome' : 'Your name'}
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-muted-foreground focus:ring-2 focus:ring-[#FF6B35]"
+                  className="w-full rounded-xl border border-border bg-black/5 dark:bg-white/5 px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-muted-foreground focus:ring-2 focus:ring-[#FF6B35]"
                 />
               </div>
 
@@ -296,7 +296,7 @@ export default function ContactSection() {
                     setFormData((prev) => ({ ...prev, email: e.target.value }))
                   }
                   placeholder={language === 'pt' ? 'seu@email.com' : 'your@email.com'}
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-muted-foreground focus:ring-2 focus:ring-[#FF6B35]"
+                  className="w-full rounded-xl border border-border bg-black/5 dark:bg-white/5 px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-muted-foreground focus:ring-2 focus:ring-[#FF6B35]"
                 />
               </div>
 
@@ -319,7 +319,7 @@ export default function ContactSection() {
                     }))
                   }
                   placeholder={language === 'pt' ? 'Sua mensagem...' : 'Your message...'}
-                  className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-muted-foreground focus:ring-2 focus:ring-[#FF6B35]"
+                  className="w-full resize-none rounded-xl border border-border bg-black/5 dark:bg-white/5 px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-muted-foreground focus:ring-2 focus:ring-[#FF6B35]"
                 />
               </div>
 
@@ -357,7 +357,7 @@ export default function ContactSection() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed bottom-6 right-6 z-[999] flex max-w-md items-center gap-3 rounded-2xl glass-strong p-4 shadow-[0_0_30px_rgba(0,0,0,0.1)] border border-white/10"
+            className="fixed bottom-6 right-6 z-[999] flex max-w-md items-center gap-3 rounded-2xl glass-strong p-4 shadow-[0_0_30px_rgba(0,0,0,0.1)] border border-border"
           >
             {status === 'success' ? (
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">

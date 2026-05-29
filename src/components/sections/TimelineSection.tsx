@@ -67,7 +67,7 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
         {/* Year & type badges */}
         <div className="mb-3 flex flex-wrap items-center gap-3">
           <span className="sunset-gradient-text text-sm font-semibold">
-            {item.year}
+            {typeof item.year === 'string' ? item.year : item.year[language]}
           </span>
           <span
             className={`inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 text-xs font-medium ${meta.bg} ${meta.color}`}

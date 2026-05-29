@@ -59,8 +59,8 @@ export function Footer() {
           {/* Copyright */}
           <p className="text-sm text-muted-foreground text-center">
             {language === 'pt'
-              ? '© 2025 João Gabriel Pitol. Todos os direitos reservados.'
-              : '© 2025 João Gabriel Pitol. All rights reserved.'}
+              ? '© 2026 João Gabriel Pitol. Todos os direitos reservados.'
+              : '© 2026 João Gabriel Pitol. All rights reserved.'}
           </p>
         </div>
       </div>

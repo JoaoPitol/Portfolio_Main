@@ -9,7 +9,7 @@ export function LanguageToggle() {
   return (
     <button
       onClick={toggleLanguage}
-      className="relative flex items-center justify-center w-10 h-10 rounded-lg hover:bg-accent transition-colors cursor-pointer text-sm font-semibold border border-transparent hover:border-white/10"
+      className="relative flex items-center justify-center w-10 h-10 rounded-lg hover:bg-accent transition-colors cursor-pointer text-sm font-semibold border border-transparent hover:border-border"
       aria-label="Alternar idioma / Switch language"
     >
       <AnimatePresence mode="wait" initial={false}>

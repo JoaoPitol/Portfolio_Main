@@ -101,7 +101,7 @@ export const aboutText = {
 // TIMELINE
 // ============================================================
 export type TimelineItem = {
-  year: string;
+  year: string | TranslatedText;
   title: TranslatedText;
   institution: string;
   description: TranslatedText;
@@ -111,7 +111,10 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
-    year: "2027",
+    year: {
+      pt: "Em andamento",
+      en: "In progress",
+    },
     title: {
       pt: "Pós-Graduação em Cybersecurity",
       en: "Post-Graduate in Cybersecurity",
@@ -145,7 +148,7 @@ export const timeline: TimelineItem[] = [
     },
   },
   {
-    year: "2024",
+    year: "2025",
     title: {
       pt: "Google Cybersecurity Professional Certificate",
       en: "Google Cybersecurity Professional Certificate",
@@ -200,6 +203,7 @@ export type Project = {
   category: TranslatedText;
   github?: string;
   demo?: string;
+  pdf?: string;
 };
 
 export const projects: Project[] = [
@@ -237,12 +241,48 @@ export const projects: Project[] = [
     },
     github: "https://github.com/JoaoPitol/Healthiest-ReactApp-Laravel",
     demo: "https://healthiest-react-app-laravel.vercel.app",
+  },
+  {
+    title: {
+      pt: "O Papel das Sequências de RM na Generalização Cross-Dataset para Segmentação de Tumor Cerebral",
+      en: "On the Role of MRI Sequences in Cross-Dataset Generalization for Brain Tumor Segmentation",
+    },
+    description: {
+      pt: "Estudo comparativo e implementação de modelos de deep learning (ResUNet) para a segmentação precisa de tumores cerebrais a partir de imagens de ressonância magnética (MRI). Comparando as diversas sequencias entre si.",
+      en: "Comparative study and implementation of deep learning models (ResUNet) for precise brain tumor segmentation from magnetic resonance imaging (MRI) scans. Comparing the different sequences among themselves.",
+    },
+    image: "/images/project-brain-tumor.png",
+    technologies: ["Python", "Deep Learning", "PyTorch", "Computer Vision", "Medical Imaging"],
+    category: {
+      pt: "Artigos",
+      en: "Articles",
+    },
+    github: "https://github.com/Henrique-zan/Brain_tumor_segmentation",
+    pdf: "/docs/_SMC2026__Brats_Cross_Dataset.pdf",
+  },
+  {
+    title: {
+      pt: "Captcha vs. ReCaptcha:Explorando a Eficiência dos Modelos de Autenticação Visual contra Deep Learning",
+      en: "Captcha vs. ReCaptcha:Exploring the Efficiency of Visual Authentication Models against Deep Learning",
+    },
+    description: {
+      pt: "Desenvolvimento de uma rede neural convolucional (CNN) robusta para quebrar e classificar captchas baseados em texto, explorando o pré-processamento de imagens e otimização de modelos.",
+      en: "Development of a robust convolutional neural network (CNN) to break and classify text-based captchas, exploring image pre-processing and model optimization.",
+    },
+    image: "/images/project-captcha.png",
+    technologies: ["Python", "CNN", "PyTorch", "Machine Learning", "Computer Vision"],
+    category: {
+      pt: "Artigos",
+      en: "Articles",
+    },
+    github: "https://github.com/JoaoPitol/Captcha_Classification",
+    pdf: "/docs/Validação_e_Avaliação_da_Solução.pdf",
   }
 ];
 
 export const projectCategories = {
-  pt: ["Todos", "Full-Stack", "Desktop", "Frontend", "Backend", "Cybersecurity"],
-  en: ["All", "Full-Stack", "Desktop", "Frontend", "Backend", "Cybersecurity"],
+  pt: ["Todos", "Full-Stack", "Desktop", "Frontend", "Backend", "Cybersecurity", "Artigos"],
+  en: ["All", "Full-Stack", "Desktop", "Frontend", "Backend", "Cybersecurity", "Articles"],
 };
 
 // ============================================================
