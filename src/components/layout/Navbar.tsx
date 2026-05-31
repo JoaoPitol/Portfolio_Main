@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { navLinks } from '@/lib/data';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { LanguageToggle } from '@/components/LanguageToggle';
@@ -126,6 +126,29 @@ export function Navbar() {
 
           {/* ── Right side ────────────────────────────────── */}
           <div className="flex items-center gap-2">
+            {/* CV Download — desktop only */}
+            <a
+              href={
+                language === 'pt'
+                  ? '/docs/Joao_Gabriel_Pitol_Resume_PT.pdf'
+                  : '/docs/Joao_Gabriel_Pitol_Resume_EN.pdf'
+              }
+              download={
+                language === 'pt'
+                  ? 'Joao_Gabriel_Pitol_Curriculo_PT.pdf'
+                  : 'Joao_Gabriel_Pitol_Resume_EN.pdf'
+              }
+              aria-label={language === 'pt' ? 'Baixar Currículo' : 'Download Resume'}
+              className="hidden md:flex items-center gap-1.5 rounded-full border border-[#FF6B35]/50 bg-[#FF6B35]/10 px-3 py-1.5 text-xs font-semibold text-[#FF8C42] transition-all duration-300 hover:bg-[#FF6B35]/20 hover:border-[#FF6B35] hover:shadow-[0_0_16px_rgba(255,107,53,0.35)] hover:scale-105 active:scale-95"
+            >
+              {/* Pulsing availability dot */}
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF6B35] opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#FF6B35]" />
+              </span>
+              <Download className="h-3 w-3" />
+              {language === 'pt' ? 'Currículo' : 'Resume'}
+            </a>
             <LanguageToggle />
             <ThemeToggle />
 
@@ -200,6 +223,31 @@ export function Navbar() {
                     </a>
                   </motion.li>
                 ))}
+
+                {/* CV Download — mobile */}
+                <motion.li
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 * navLinks.length, duration: 0.3 }}
+                  className="mt-3 border-t border-border pt-3"
+                >
+                  <a
+                    href={
+                      language === 'pt'
+                        ? '/docs/Joao_Gabriel_Pitol_Resume_PT.pdf'
+                        : '/docs/Joao_Gabriel_Pitol_Resume_EN.pdf'
+                    }
+                    download={
+                      language === 'pt'
+                        ? 'Joao_Gabriel_Pitol_Curriculo_PT.pdf'
+                        : 'Joao_Gabriel_Pitol_Resume_EN.pdf'
+                    }
+                    className="flex items-center gap-3 rounded-lg px-4 py-3 text-base font-semibold text-[#FF8C42] transition-colors hover:bg-[#FF6B35]/10"
+                  >
+                    <Download className="h-4 w-4" />
+                    {language === 'pt' ? 'Baixar Currículo' : 'Download Resume'}
+                  </a>
+                </motion.li>
               </ul>
             </motion.div>
           </>

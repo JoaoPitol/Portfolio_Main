@@ -71,7 +71,7 @@ export const stats = [
   },
   {
     label: { pt: "Projetos", en: "Projects" },
-    value: 10,
+    value: 5,
     suffix: "+",
   },
   {
@@ -413,19 +413,6 @@ export const studyTopics: StudyTopic[] = [
     progress: 5,
     icon: Shield as unknown as IconType,
     color: "#FF6B35",
-  },
-  {
-    title: {
-      pt: "Cloud Security",
-      en: "Cloud Security",
-    },
-    description: {
-      pt: "Segurança em ambientes cloud (AWS/Azure)",
-      en: "Security in cloud environments (AWS/Azure)",
-    },
-    progress: 20,
-    icon: Lock as unknown as IconType,
-    color: "#FF8C42",
   },
   {
     title: {

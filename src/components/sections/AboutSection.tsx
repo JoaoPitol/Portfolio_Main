@@ -4,6 +4,7 @@ import { motion, useInView } from 'motion/react';
 import { useRef, useState, useEffect } from 'react';
 import { aboutText, stats } from '@/lib/data';
 import { useLanguage } from '@/providers/LanguageProvider';
+import VariableProximity from '@/components/ui/VariableProximity';
 
 /* ── Counter hook — animate from 0 → target when visible ── */
 function useCounter(target: number, inView: boolean, duration = 2000) {
@@ -71,8 +72,12 @@ function StatCard({
 /* ── About Section ── */
 export default function AboutSection() {
   const { language } = useLanguage();
+
+  // Coordinate origin for all VP instances in this section
+  const sectionRef = useRef<HTMLElement>(null);
+
   return (
-    <section id="about" className="relative py-24 md:py-32">
+    <section ref={sectionRef} id="about" className="relative py-24 md:py-32">
       <div className="container mx-auto max-w-6xl px-6">
         {/* Section header */}
         <motion.div
@@ -90,7 +95,7 @@ export default function AboutSection() {
 
         {/* Grid */}
         <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left — paragraphs */}
+          {/* Left — paragraphs with word-level Variable Proximity */}
           <div className="space-y-6">
             {aboutText[language].map((paragraph, i) => (
               <motion.p
@@ -101,7 +106,15 @@ export default function AboutSection() {
                 transition={{ duration: 0.6, delay: i * 0.2, ease: 'easeOut' }}
                 className="text-lg leading-relaxed text-muted-foreground"
               >
-                {paragraph}
+                <VariableProximity
+                  label={paragraph}
+                  containerRef={sectionRef as React.MutableRefObject<HTMLElement | null>}
+                  fromFontVariationSettings="'wght' 300"
+                  toFontVariationSettings="'wght' 650"
+                  radius={180}
+                  falloff="gaussian"
+                  splitBy="word"
+                />
               </motion.p>
             ))}
           </div>
