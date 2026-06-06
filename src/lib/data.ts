@@ -258,7 +258,7 @@ export const projects: Project[] = [
       en: "Articles",
     },
     github: "https://github.com/Henrique-zan/Brain_tumor_segmentation",
-    pdf: "/docs/_SMC2026__Brats_Cross_Dataset.pdf",
+    pdf: "/docs/Artigo.pdf",
   },
   {
     title: {
